@@ -1,7 +1,7 @@
 import Home from "../pages/home/home";
 import BestSeller from "../pages/bestSeller/bestSeller";
 import Collections from "../pages/collections/collections";
-// import Project from "../components/director/director";
+import Contact from "../pages/contact/contact";
 
 const routes = [
   {
@@ -25,12 +25,12 @@ const routes = [
     component: Collections,
   },
 
-  // {
-  //   path: "/projects",
-  //   exact: true,
-  //   auth: false,
-  //   component: Project,
-  // },
+  {
+    path: "/contact",
+    exact: true,
+    auth: false,
+    component: Contact,
+  },
 ];
 
 export default routes;

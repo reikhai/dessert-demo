@@ -22,6 +22,8 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useLocation } from "react-router-dom";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -136,8 +138,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const classes = useStyles();
+  const location = useLocation();
 
   const [headerStyle, setHeader] = useState(classes.root);
+  const [open, setOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [state, setState] = React.useState({
+    top: false,
+  });
+  const linkArr = ["/collections", "/contact"];
 
   const listenScrollEvent = (event) => {
     if (window.scrollY < 73) {
@@ -146,19 +155,18 @@ export default function Header() {
       return setHeader(classes.root1);
     }
   };
-  const location = useLocation();
 
   const navLinks = [
-    { title: `Home`, path: `/` },
-    { title: `Shop By Category`, path: `/services` },
-    { title: `Ready In 4 Hours`, path: `/projects` },
-    { title: `By Occasion`, path: `/about-us` },
-    { title: `Contact us`, path: `/about-us` },
+    { title: `Home`, path: `/`, sub: {} },
+    {
+      title: `Shop By Category`,
+      path: `/services`,
+      sub: { 0: "Artisan Cakes", 1: "Cupcakes", 2: "Mini Cake" },
+    },
+    { title: `Ready In 4 Hours`, path: `/projects`, sub: {} },
+    { title: `By Occasion`, path: `/about-us`, sub: {} },
+    { title: `Contact us`, path: `/contact`, sub: {} },
   ];
-
-  const [state, setState] = React.useState({
-    top: false,
-  });
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -197,6 +205,16 @@ export default function Header() {
     </Box>
   );
 
+  const handleClick = (event) => {
+    setOpen(true);
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setAnchorEl(null);
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
 
@@ -207,7 +225,7 @@ export default function Header() {
     <>
       <div
         className={
-          location.pathname !== "/collections" ? headerStyle : classes.root1
+          linkArr.includes(location.pathname) ? classes.root1 : headerStyle
         }
       >
         <Container className={classes.header}>
@@ -222,16 +240,47 @@ export default function Header() {
 
             <div className={classes.navItem}>
               <List className={classes.navDisplayFlex} disablePadding={false}>
-                {navLinks.map(({ title, path }) => (
-                  <ListItem button alignItems="center" key={title}>
-                    <a href={path} key={title} className={classes.linkText}>
-                      <ListItemText
-                        primary={title}
-                        classes={{ primary: classes.listItemText }}
-                      />
-                    </a>
-                  </ListItem>
-                ))}
+                {navLinks.map(({ title, path, sub }) =>
+                  Object.keys(sub).length ? (
+                    <React.Fragment key={title}>
+                      <ListItem alignItems="center" key={title}>
+                        <a
+                          href={path}
+                          key={title}
+                          className={classes.linkText}
+                          onMouseOver={handleClick}
+                        >
+                          <ListItemText
+                            primary={title}
+                            classes={{ primary: classes.listItemText }}
+                          />
+                        </a>
+                      </ListItem>
+                      <Menu
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        onMouseLeave={handleClose}
+                        MenuListProps={{ onMouseLeave: handleClose }}
+                      >
+                        {Object.values(sub).map((v, index) => (
+                          <MenuItem key={index} onClick={handleClose}>
+                            {v}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </React.Fragment>
+                  ) : (
+                    <ListItem alignItems="center" key={title}>
+                      <a href={path} key={title} className={classes.linkText}>
+                        <ListItemText
+                          primary={title}
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </a>
+                    </ListItem>
+                  )
+                )}
               </List>
             </div>
 
