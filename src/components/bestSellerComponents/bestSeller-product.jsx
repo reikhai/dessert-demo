@@ -48,37 +48,47 @@ export default function Home() {
       caption: `Same Day Delivery`,
       name: `Box of 12 Assorted Macarons`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/macaron-box-of-12-2_740x.jpg?v=1607938623`,
+      path_1: `${
+        require("../../images/MACARON_ELEVETE-11_1296x.webp").default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `The Locale Cake (Pandan Gula Melaka)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/pandan-gula-melaka-2_740x.jpg?v=1602898379`,
+      path_1: `${
+        require("../../images/TheLocalePandanGulaMelaka-2_370x.webp").default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Mix & Match Cake Bites 9 Inch (1.2kg)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/mix-and-match-cake-bites-2_740x.jpg?v=1602897521`,
+      path_1: `${
+        require("../../images/mix-and-match-cake-bites-2_740x.webp").default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Mini The Locale Cake (Pandan Gula Melaka) 5 Inch (0.6kg)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/mini-cake-pandan-gula-melaka-2_740x.jpg?v=1602897457`,
+      path_1: `${require("../../images/MiniCakes-003b_370x.webp").default}`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Mix and Match Cake Slices`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/mix-and-match-slices-3_740x.jpg?v=1603171676`,
+      path_1: `${
+        require("../../images/mix-and-match-slices-3_740x.webp").default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Macaron Tower of 25 Assorted Macarons`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/macaron-tower-25_740x.jpg?v=1612067818`,
+      path_1: `${
+        require("../../images/macaron-tower-with-flowers_900x.webp").default
+      }`,
     },
   ];
 

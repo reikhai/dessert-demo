@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import { List, ListItem, ListItemText } from "@material-ui/core";
 import { Container } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
-import clsx from "clsx";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import Tab from "@mui/material/Tab";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
@@ -20,7 +12,6 @@ import Drawer from "@mui/material/Drawer";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useLocation } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -163,8 +154,8 @@ export default function Header() {
       path: `/services`,
       sub: { 0: "Artisan Cakes", 1: "Cupcakes", 2: "Mini Cake" },
     },
-    { title: `Ready In 4 Hours`, path: `/projects`, sub: {} },
-    { title: `By Occasion`, path: `/about-us`, sub: {} },
+    // { title: `Ready In 4 Hours`, path: `/projects`, sub: {} },
+    // { title: `By Occasion`, path: `/about-us`, sub: {} },
     { title: `Contact us`, path: `/contact`, sub: {} },
   ];
 
@@ -233,7 +224,7 @@ export default function Header() {
             <div className={classes.logo}>
               <img
                 alt="logo"
-                src="https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EleveteWideLogoforDarkBG_x70@2x.png?v=1595939765"
+                src={require("../../images/logo.webp").default}
                 width="250px"
               />
             </div>

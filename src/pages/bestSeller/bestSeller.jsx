@@ -15,8 +15,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   bg: {
-    // fontFamily: "Optima nova","sansserif",
-
     backgroundColor: "#ebebeb",
   },
 

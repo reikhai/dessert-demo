@@ -48,49 +48,66 @@ export default function Collections() {
       caption: `Same Day Delivery`,
       name: `Burnt Cheesecake with Berries`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/burnt-cheesecake-with-fruits_590x.jpg?v=1603173576`,
+      path_1: `${
+        require("../../images/burnt-cheesecake-with-fruits_590x.webp").default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Popstar 7inch (1kg) (Salted Caramel Chocolate)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/popstar-salted-caramel-chocolate-3_590x.jpg?v=1602897856`,
+      path_1: `${
+        require("../../images/Popstar7InchSaltedCaramelChocolate-3_900x.webp")
+          .default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `The Locale Cake (Pandan Gula Melaka)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/pandan-gula-melaka-2_590x.jpg?v=1602898379`,
+      path_1: `${
+        require("../../images/TheLocalePandanGulaMelaka-2_370x.webp").default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Popstar 9Inch (2kg) (Salted Caramel Chocolate)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/salted-caramel-chocolate-popcorn-2_590x.jpg?v=1602897910`,
+      path_1: `${
+        require("../../images/SaltedCaramelChocolatePopcorn-2_1080x.webp")
+          .default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Tokeru Cheesecake (New York Baked Cheesecake)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/nutella-fudge-4_590x.jpg?v=1602897559`,
+      path_1: `${
+        require("../../images/tokeru-new-york-baked-cheesecake-2_1296x.webp")
+          .default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Lemon Poppyseed Cake`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/chocolate-tuxedo-2_590x.jpg?v=1603165185`,
+      path_1: `${require("../../images/chocolate-tuxedo-2_590x.webp").default}`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Old Fashioned Butterscotch Cookies Cake`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/chocolate-truffle-2_590x.jpg?v=1603171988`,
+      path_1: `${
+        require("../../images/butterscotch-cookies-2_1512x.webp").default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Mix and Match Cake Slices`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/burnt-cheesecake-2_590x.jpg?v=1603174106`,
+      path_1: `${
+        require("../../images/burnt-cheesecake-with-fruits_590x.webp").default
+      }`,
     },
   ];
 
@@ -99,31 +116,33 @@ export default function Collections() {
       caption: `Same Day Delivery`,
       name: `Mini Butterscotch Cookies Cake 5 Inch (0.6kg)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/mini-cake-butterscotch-cookies_590x.jpg?v=1603166594`,
+      path_1: `${
+        require("../../images/burnt-cheesecake-with-fruits_590x.webp").default
+      }`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Mini Popstar 5 Inch (Salted Caramel Chocolate) (0.6kg)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/mini-cake-salted-caramel-chocolate-popcorn_590x.jpg?v=1602897333`,
+      path_1: `${require("../../images/MiniCakes-001b_1080x.webp").default}`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Mini The Locale Cake (Pandan Gula Melaka) 5 Inch (0.6kg)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/mini-cake-pandan-gula-melaka-2_590x.jpg?v=1602897457`,
+      path_1: `${require("../../images/MiniCakes-006b_1296x.webp").default}`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Mini Salted Caramel Chocolate 5 Inch (0.6kg)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/mini-cake-salted-caramel-chocolate-drizzle_590x.jpg?v=1602897401`,
+      path_1: `${require("../../images/MiniCakes-005b_1080x.webp").default}`,
     },
     {
       caption: `Same Day Delivery`,
       name: `Mini Death By Chocolate Cake 5 Inch (0.6kg)`,
       price: `RM69`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/products/mini-cake-death-by-chocolate_590x.jpg?v=1603166732`,
+      path_1: `${require("../../images/MiniCakes-002b_900x.webp").default}`,
     },
   ];
 

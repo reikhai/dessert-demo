@@ -9,8 +9,9 @@ const useStyles = makeStyles((theme) => ({
 
   bannerImage: {
     backgroundPosition: "center center",
-    backgroundImage:
-      "url(https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/ASSORTED_ELEVETE-4.jpg?v=1603326956)",
+    backgroundImage: `url(${
+      require("../../images/ASSORTED_ELEVETE-4.webp").default
+    })`,
     position: "relative",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -50,7 +51,7 @@ export default function BestSellerBannerComponent() {
 
   var banner = [
     {
-      path: "https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/ASSORTED_ELEVETE-4.jpg?v=1603326956",
+      path: `${require("../../images/ASSORTED_ELEVETE-4.webp").default}`,
     },
   ];
 

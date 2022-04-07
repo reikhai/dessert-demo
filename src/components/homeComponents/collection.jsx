@@ -55,38 +55,54 @@ export default function Collections() {
   const prd = [
     {
       name: `Artisanal Cakes`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/BURNT_CHEESE_W__FRUITS_ELEVETE-4_1080x.jpg?v=1603325474`,
+      path_1: `${
+        require("../../images/BURNT_CHEESE_W__FRUITS_ELEVETE-4_1080x.webp")
+          .default
+      }`,
     },
     {
       name: `Macarons`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/new-macaron-box_1296x.jpg?v=1604255796`,
+      path_1: `${require("../../images/new-macaron-box_1296x.webp").default}`,
     },
   ];
 
   const prd2 = [
     {
       name: `Mini Cakes`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/LOCALLE_MINI_ELEVETE-1_720x.jpg?v=1603326727`,
+
+      path_1: `${
+        require("../../images/LOCALLE_MINI_ELEVETE-1_720x.webp").default
+      }`,
     },
     {
       name: `Cupcakes`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/ASSORTED_CUPCAKE_ELEVETE-3_720x.jpg?v=1603325957`,
+
+      path_1: `${
+        require("../../images/ASSORTED_CUPCAKE_ELEVETE-3_720x.webp").default
+      }`,
     },
     {
       name: `Cake Bites & Brownies`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/ASSORTED_CAKEBITES_ELEVETE-2_720x.jpg?v=1606662136`,
+
+      path_1: `${
+        require("../../images/ASSORTED_CAKEBITES_ELEVETE-2_720x.webp").default
+      }`,
     },
     {
       name: `Designer Cakes`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/IMG_20191031_090403crop_720x.jpg?v=1603325843`,
+      path_1: `${
+        require("../../images/IMG_20191031_090403crop_720x.webp").default
+      }`,
     },
     {
       name: `Dessert table`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/dt_classic_1_720x.jpg?v=1618183016`,
+      path_1: `${require("../../images/dt_classic_1_720x.webp").default}`,
     },
     {
       name: `Virtual Celebration with Elevete`,
-      path_1: `https://cdn.shopify.com/s/files/1/0046/1969/8210/collections/Elevete-NOV_v5_Banner_1080x.jpg?v=1608118012`,
+      path_1: `${
+        require("../../images/Elevete-NOV_v5_Banner_1080x.webp").default
+      }`,
     },
   ];
 

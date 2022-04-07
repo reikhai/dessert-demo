@@ -8,8 +8,7 @@ const useStyles = makeStyles((theme) => ({
 
   bannerImage: {
     backgroundPosition: "center center",
-    backgroundImage:
-      "url(https://cdn.shopify.com/s/files/1/0046/1969/8210/files/Untitled_design.png?v=1625108970)",
+    backgroundImage: `url(${require("../../images/home.png").default})`,
     position: "relative",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -37,7 +36,7 @@ export default function BannerComponent() {
 
   var banner = [
     {
-      path: "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/Untitled_design.png?v=1625108970",
+      path: `${require("../../images/home.png").default}`,
     },
   ];
 
