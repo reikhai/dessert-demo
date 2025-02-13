@@ -7,6 +7,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
+import LanguageIcon from "@mui/icons-material/Language";
 import { grey } from "@mui/material/colors";
 import Drawer from "@mui/material/Drawer";
 import Paper from "@mui/material/Paper";
@@ -15,6 +16,8 @@ import IconButton from "@mui/material/IconButton";
 import { useLocation } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import LanguageBtn from "./languageBtn";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -99,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   listItemText: {
-    fontSize: "0.7em",
+    fontSize: "1.2rem",
     fontWeight: "bold",
   },
 
@@ -138,6 +141,7 @@ export default function Header() {
     top: false,
   });
   const linkArr = ["/collections", "/contact"];
+  const { t } = useTranslation();
 
   const listenScrollEvent = (event) => {
     if (window.scrollY < 73) {
@@ -148,15 +152,13 @@ export default function Header() {
   };
 
   const navLinks = [
-    { title: `Home`, path: `/`, sub: {} },
+    { title: t("home"), path: `/`, sub: {} },
     {
-      title: `Shop By Category`,
+      title: t("shopByCategory"),
       path: `/services`,
       sub: { 0: "Artisan Cakes", 1: "Cupcakes", 2: "Mini Cake" },
     },
-    // { title: `Ready In 4 Hours`, path: `/projects`, sub: {} },
-    // { title: `By Occasion`, path: `/about-us`, sub: {} },
-    { title: `Contact us`, path: `/contact`, sub: {} },
+    { title: t("contactUs"), path: `/contact`, sub: {} },
   ];
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -303,6 +305,8 @@ export default function Header() {
                     {list("top")}
                   </Drawer>
                 </ListItemIcon>
+
+                <LanguageBtn />
               </List>
             </div>
           </div>

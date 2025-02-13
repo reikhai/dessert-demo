@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
@@ -7,6 +6,7 @@ import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import Button from "@material-ui/core/Button";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   letterSpacing: {
@@ -17,13 +17,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Collections() {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <>
       <Container maxWidth="md">
         <Box mt={18} mb={3} ml={5} mr={5}>
           <Typography variant="h3" align="center">
-            Contact Us
+            {t("contactUs")}
           </Typography>
         </Box>
 
@@ -34,7 +35,7 @@ export default function Collections() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="outlined-basic"
-                    label="Your Name"
+                    label={t("yourName")}
                     variant="outlined"
                     fullWidth
                   />
@@ -43,7 +44,7 @@ export default function Collections() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="outlined-basic"
-                    label="Your Email"
+                    label={t("yourEmail")}
                     variant="outlined"
                     fullWidth
                   />
@@ -56,7 +57,7 @@ export default function Collections() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="outlined-basic"
-                    label="Your Mobile.No"
+                    label={t("yourPhoneNumber")}
                     variant="outlined"
                     fullWidth
                   />
@@ -65,7 +66,7 @@ export default function Collections() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="outlined-basic"
-                    label="Subject"
+                    label={t("subject")}
                     variant="outlined"
                     fullWidth
                   />
@@ -80,7 +81,7 @@ export default function Collections() {
                     aria-label="minimum height"
                     rowsMin={10}
                     variant="outlined"
-                    placeholder="Your Message"
+                    placeholder={t("yourMessage")}
                     style={{ width: "100%" }}
                   />
                 </Grid>
@@ -95,7 +96,7 @@ export default function Collections() {
               color="primary"
               className={classes.button}
             >
-              Submit
+              {t("Submit")}
             </Button>
           </Grid>
         </Box>

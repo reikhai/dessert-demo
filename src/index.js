@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import MasterLayout from "./pages/layouts/master";
 import { BrowserRouter } from "react-router-dom";
+import './i18n/i18n'; // Import the i18n configuration
 
 ReactDOM.render(
   <React.StrictMode>

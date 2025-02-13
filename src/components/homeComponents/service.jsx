@@ -8,8 +8,11 @@ import VolunteerActivismTwoToneIcon from "@mui/icons-material/VolunteerActivismT
 import LocalShippingTwoToneIcon from "@mui/icons-material/LocalShippingTwoTone";
 import StorefrontTwoToneIcon from "@mui/icons-material/StorefrontTwoTone";
 import { yellow, pink, lightBlue, orange } from "@mui/material/colors";
+import { useTranslation } from "react-i18next";
 
 export default function Service() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Container maxWidth="md">
@@ -22,10 +25,10 @@ export default function Service() {
               style={{ fontSize: 80 }}
             />
             <Typography variant="body1" align="center">
-              BAKING SMILES, ONE CAKE AT A TIME
+              {t("slogan1")}
             </Typography>
             <Typography variant="caption" align="center">
-              Creating sweet moments and memories for every occasion
+              {t("slogan1Desc")}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={3} md={3} style={{ textAlign: "center" }}>
@@ -34,10 +37,10 @@ export default function Service() {
               style={{ fontSize: 80 }}
             />
             <Typography variant="body1" align="center">
-              DELIVERED DIRECTLY TO YOUR DOORSTEPS
+              {t("slogan2")}
             </Typography>
             <Typography variant="caption" align="center">
-              Never compromising on the quality of ingredients we use.
+              {t("slogan2Desc")}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={3} md={3} style={{ textAlign: "center" }}>
@@ -46,11 +49,10 @@ export default function Service() {
               style={{ fontSize: 80 }}
             />
             <Typography variant="body1" align="center">
-              BAKED FROM SCRATCH, WITH LOVE
+              {t("slogan3")}
             </Typography>
             <Typography variant="caption" align="center">
-              Whether you're ordering ahead of time, or for something last
-              minute.
+              {t("slogan3Desc")}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={3} md={3} style={{ textAlign: "center" }}>
@@ -59,11 +61,10 @@ export default function Service() {
               style={{ fontSize: 80 }}
             />
             <Typography variant="body1" align="center">
-              BUY ONLINE , PICK UP IN STORE
+              {t("slogan4")}
             </Typography>
             <Typography variant="caption" align="center">
-              Pick up for free at our Collection Point and save on delivery
-              fees!
+              {t("slogan4Desc")}
             </Typography>
           </Grid>
         </Grid>

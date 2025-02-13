@@ -9,7 +9,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 const useStyles = makeStyles(() => ({
   letterSpacing: {
     letterSpacing: ".25em",
@@ -51,55 +51,56 @@ const useStyles = makeStyles(() => ({
 
 export default function Collections() {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   const prd = [
     {
-      name: `Artisanal Cakes`,
+      name: t('ArtisanalCakes'),
       path_1: `${
         require("../../images/BURNT_CHEESE_W__FRUITS_ELEVETE-4_1080x.webp")
           .default
       }`,
     },
     {
-      name: `Macarons`,
+      name: t('Macarons'),
       path_1: `${require("../../images/new-macaron-box_1296x.webp").default}`,
     },
   ];
 
   const prd2 = [
     {
-      name: `Mini Cakes`,
+      name: t('MiniCakes'),
 
       path_1: `${
         require("../../images/LOCALLE_MINI_ELEVETE-1_720x.webp").default
       }`,
     },
     {
-      name: `Cupcakes`,
+      name: t('Cupcakes'),
 
       path_1: `${
         require("../../images/ASSORTED_CUPCAKE_ELEVETE-3_720x.webp").default
       }`,
     },
     {
-      name: `Cake Bites & Brownies`,
+      name: t('CakeBitesAndBrownies'),
 
       path_1: `${
         require("../../images/ASSORTED_CAKEBITES_ELEVETE-2_720x.webp").default
       }`,
     },
     {
-      name: `Designer Cakes`,
+      name: t('DesignerCakes'),
       path_1: `${
         require("../../images/IMG_20191031_090403crop_720x.webp").default
       }`,
     },
     {
-      name: `Dessert table`,
+      name: t('desertTable'),
       path_1: `${require("../../images/dt_classic_1_720x.webp").default}`,
     },
     {
-      name: `Virtual Celebration with Elevete`,
+      name: t('virtualParty'),
       path_1: `${
         require("../../images/Elevete-NOV_v5_Banner_1080x.webp").default
       }`,
@@ -115,18 +116,18 @@ export default function Collections() {
             align="center"
             className={classes.letterSpacing}
           >
-            "A PARTY WITHOUT DESSERTS, IS JUST A MEETING"
+            {t('aPartyWithoutCakeIsJustAMeeting')}
           </Typography>
         </Box>
         <Box mt={3} mb={7}>
           <Typography
-            variant="body1"
+            variant="h5"
             align="center"
             style={{
               color: "#7d7979",
             }}
           >
-            YOU DESERVE TO BE SPOILED WITH ALL THESE CHOICES!
+            {t("youDeserve")}
           </Typography>
         </Box>
         <Grid container spacing={3}>
@@ -149,7 +150,7 @@ export default function Collections() {
                 />
                 <Typography
                   gutterBottom
-                  variant="body1"
+                  variant="h5"
                   component="div"
                   className={classes.font}
                 >
@@ -179,7 +180,7 @@ export default function Collections() {
                 />
                 <Typography
                   gutterBottom
-                  variant="body1"
+                  variant="h5"
                   component="div"
                   className={classes.font}
                 >
@@ -196,7 +197,7 @@ export default function Collections() {
             variant="outlined"
             endIcon={<ArrowForwardIcon />}
           >
-            View All Collections
+            {t("ViewAllCollections")}
           </Button>
         </Box>
       </Container>

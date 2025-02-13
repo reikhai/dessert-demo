@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -12,6 +11,7 @@ import ListItem from "@material-ui/core/ListItem";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { amber } from "@mui/material/colors";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Footer() {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -64,17 +65,17 @@ export default function Footer() {
                 <ListItem dense={true}>
                   <ListItemText
                     disableTypography
-                    primary={<Typography type="h5">QUICK LINKS</Typography>}
+                    primary={<Typography type="h5">{t('quickLinks')}</Typography>}
                   />
                 </ListItem>
                 <ListItem dense={true}>
-                  <ListItemText primary="About Elevete" />
+                  <ListItemText primary={t('aboutUs')} />
                 </ListItem>
                 <ListItem dense={true}>
-                  <ListItemText primary="Contact Us" />
+                  <ListItemText primary={t('contactUs')} />
                 </ListItem>
                 <ListItem dense={true}>
-                  <ListItemText primary="FAQ" />
+                  <ListItemText primary={t('FAQ')} />
                 </ListItem>
               </Grid>
 
@@ -82,14 +83,14 @@ export default function Footer() {
                 <ListItem dense={true}>
                   <ListItemText
                     disableTypography
-                    primary={<Typography type="h5">STORE POLICIES</Typography>}
+                    primary={<Typography type="h5">{t('storePolicy')}</Typography>}
                   />
                 </ListItem>
                 <ListItem dense={true}>
-                  <ListItemText primary="Terms & Condition" />
+                  <ListItemText primary={t('termsAndConditions')} />
                 </ListItem>
                 <ListItem dense={true}>
-                  <ListItemText primary="Privacy Policy" />
+                  <ListItemText primary={t('privacyPolicy')} />
                 </ListItem>
               </Grid>
 
@@ -97,7 +98,7 @@ export default function Footer() {
                 <ListItem dense={true}>
                   <ListItemText
                     disableTypography
-                    primary={<Typography type="h5">FOLLOW US</Typography>}
+                    primary={<Typography type="h5">{t('followUs')}</Typography>}
                   />
                 </ListItem>
                 <ListItem dense={true}>
@@ -120,12 +121,12 @@ export default function Footer() {
                     disableTypography
                     primary={
                       <Typography type="h5">
-                        SUBSCRIBE TO OUR NEWSLETTER
+                        {t('subscribeToOurNewsletter')}
                       </Typography>
                     }
                     secondary={
                       <Typography variant="body1" className={classes.textWhite}>
-                        Get the latest updates and news for promotions or events
+                        {t('getLatestPromotionsAndNews')}
                       </Typography>
                     }
                   />
@@ -133,7 +134,7 @@ export default function Footer() {
                 <ListItem dense={true}>
                   <TextField
                     variant="outlined"
-                    label="Email"
+                    label={t('email')}
                     InputProps={{
                       endAdornment: (
                         <Button
@@ -141,7 +142,7 @@ export default function Footer() {
                           size="small"
                           sx={{ backgroundColor: amber["A700"] }}
                         >
-                          Submit
+                          {t('Submit')}
                         </Button>
                       ),
                     }}

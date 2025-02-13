@@ -7,6 +7,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   letterSpacing: {
@@ -45,49 +46,49 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home() {
   const classes = useStyles();
-
+  const { t } = useTranslation();
   const prd = [
     {
-      caption: `Same Day Delivery`,
-      name: `Box of 12 Assorted Macarons`,
+      caption: t("sameDayDelivery"),
+      name: t('Boxof12AssortedMacarons'),
       price: `RM69`,
       path_1: `${
         require("../../images/MACARON_ELEVETE-11_1296x.webp").default
       }`,
     },
     {
-      caption: `Same Day Delivery`,
-      name: `The Locale Cake (Pandan Gula Melaka)`,
+      caption: t("sameDayDelivery"),
+      name: t('TheLocaleCakePandanGulaMelaka'),
       price: `RM69`,
       path_1: `${
         require("../../images/TheLocalePandanGulaMelaka-2_370x.webp").default
       }`,
     },
     {
-      caption: `Same Day Delivery`,
-      name: `Mix & Match Cake Bites 9 Inch (1.2kg)`,
+      caption: t("sameDayDelivery"),
+      name: t('MixandMatchCakeBites9Inch1.2kg'),
       price: `RM69`,
       path_1: `${
         require("../../images/mix-and-match-cake-bites-2_740x.webp").default
       }`,
     },
     {
-      caption: `Same Day Delivery`,
-      name: `Mini The Locale Cake (Pandan Gula Melaka) 5 Inch (0.6kg)`,
+      caption: t("sameDayDelivery"),
+      name: t("MiniTheLocaleCake(Pandan Gula Melaka)5Inch(0.6kg)"),
       price: `RM69`,
       path_1: `${require("../../images/MiniCakes-003b_370x.webp").default}`,
     },
     {
-      caption: `Same Day Delivery`,
-      name: `Mix and Match Cake Slices`,
+      caption: t("sameDayDelivery"),
+      name: t("MixandMatchCakeSlices"),
       price: `RM69`,
       path_1: `${
         require("../../images/mix-and-match-slices-3_740x.webp").default
       }`,
     },
     {
-      caption: `Same Day Delivery`,
-      name: `Macaron Tower of 25 Assorted Macarons`,
+      caption: t("sameDayDelivery"),
+      name: t("MacaronTowerof25AssortedMacarons"),
       price: `RM69`,
       path_1: `${
         require("../../images/macaron-tower-with-flowers_900x.webp").default
@@ -104,7 +105,7 @@ export default function Home() {
             align="center"
             className={classes.letterSpacing}
           >
-            YOUR FAVOURITE MALAYSIA CAKE SHOP
+            {t("yourFavouriteMalaysiaCakeShop")}
           </Typography>
         </Box>
         <Box mt={3} mb={3} ml={5} mr={5}>
@@ -117,7 +118,7 @@ export default function Home() {
               color: "#7d7979",
             }}
           >
-            OUR BEST SELLERS
+            {t('ourBestSellers')}
           </Typography>
         </Box>
         <Grid container spacing={3}>
@@ -169,7 +170,7 @@ export default function Home() {
             variant="outlined"
             endIcon={<ArrowForwardIcon />}
           >
-            View More
+            {t("viewAll")}
           </Button>
         </Box>
       </Container>
