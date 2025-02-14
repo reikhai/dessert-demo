@@ -7,8 +7,10 @@ import Flag from 'react-country-flag';
 
 const LanguageDropdown: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("us");
-
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(
+    localStorage.getItem('language') === 'en' ? 'us' : localStorage.getItem('language') || 'us'
+  );
+  
   const { i18n } = useTranslation(); // `t` is for translation, `i18n` for switching languages
 
   const handleSelectLanguage = (lng: any) => {

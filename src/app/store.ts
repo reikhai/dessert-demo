@@ -1,19 +1,14 @@
+// store.ts
+
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './reducer';
+import cartReducer from './reducer'; // Import the cartReducer
 
-// Define the type of the state managed by the store
-export interface RootState {
-  counter: {
-    count: number;
-  };
-}
-
-// Configure the store with the reducer and type it correctly
+// Configure the Redux store
 export const store = configureStore({
   reducer: {
-    counter: counterReducer, // Use the typed counterReducer
+    items: cartReducer, // Add the cartReducer to the store
   },
 });
 
-// Type for the dispatch function (optional but useful)
+// Export the store's dispatch function for easy usage
 export type AppDispatch = typeof store.dispatch;

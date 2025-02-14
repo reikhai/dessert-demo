@@ -1,26 +1,28 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "esnext",  // Target latest JavaScript features
+    "module": "esnext",  // Use ES modules (important for Framer Motion and modern build tools)
+    "strict": true,  // Enable all strict type-checking options
+    "esModuleInterop": true,  // Ensures proper interop between ES modules and CommonJS
+    "skipLibCheck": true,  // Skip type checking in node_modules
+    "forceConsistentCasingInFileNames": true,  // Ensure consistent casing in filenames
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "allowJs": true,  // Allow JavaScript files (if needed)
+    "allowSyntheticDefaultImports": true,  // Allow default imports from CommonJS
+    "noFallthroughCasesInSwitch": true,  // Avoid fallthrough cases in switch
+    "moduleResolution": "node",  // Resolve modules like Node.js
+    "resolveJsonModule": true,  // Allow importing JSON modules
+    "isolatedModules": true,  // Ensures each file can be transpiled independently
+    "noEmit": true,  // Don't emit output files (useful for type-checking only)
+    "jsx": "react-jsx",  // Use the new JSX Transform (React 17+)
+    "typeRoots": ["node_modules/@types"],
+    "types": ["react", "react-dom", "react-router-dom"]
   },
   "include": [
-    "src/**/*"
+    "src/**/*"  // Include all source files in the "src" directory
   ]
 }

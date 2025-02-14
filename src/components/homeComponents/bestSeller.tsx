@@ -1,4 +1,4 @@
-import React from "react";
+import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
@@ -8,6 +8,9 @@ import Button from "@material-ui/core/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { addItem } from "../../app/actions";
+import SnackbarComponent from "../snackBarComponents";
+import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   letterSpacing: {
@@ -47,36 +50,47 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
   const classes = useStyles();
   const { t } = useTranslation();
+
+  // Access dispatch function with correct types
+  const dispatch = useDispatch();
+  const [openSnack, setOpenSnack] = useState(false);
+  const [message, setMessage] = useState("");
+  const [type, setType] = useState<"success" | "error" | "info" | "warning">("info");
+
   const prd = [
     {
       caption: t("sameDayDelivery"),
-      name: t('Boxof12AssortedMacarons'),
+      name: t("Boxof12AssortedMacarons"),
       price: `RM69`,
       path_1: `${
         require("../../images/MACARON_ELEVETE-11_1296x.webp").default
       }`,
+      id: 1,
     },
     {
       caption: t("sameDayDelivery"),
-      name: t('TheLocaleCakePandanGulaMelaka'),
+      name: t("TheLocaleCakePandanGulaMelaka"),
       price: `RM69`,
       path_1: `${
         require("../../images/TheLocalePandanGulaMelaka-2_370x.webp").default
       }`,
+      id: 2,
     },
     {
       caption: t("sameDayDelivery"),
-      name: t('MixandMatchCakeBites9Inch1.2kg'),
+      name: t("MixandMatchCakeBites9Inch1.2kg"),
       price: `RM69`,
       path_1: `${
         require("../../images/mix-and-match-cake-bites-2_740x.webp").default
       }`,
+      id: 3,
     },
     {
       caption: t("sameDayDelivery"),
       name: t("MiniTheLocaleCake(Pandan Gula Melaka)5Inch(0.6kg)"),
       price: `RM69`,
       path_1: `${require("../../images/MiniCakes-003b_370x.webp").default}`,
+      id: 4,
     },
     {
       caption: t("sameDayDelivery"),
@@ -85,6 +99,7 @@ export default function Home() {
       path_1: `${
         require("../../images/mix-and-match-slices-3_740x.webp").default
       }`,
+      id: 5,
     },
     {
       caption: t("sameDayDelivery"),
@@ -93,8 +108,23 @@ export default function Home() {
       path_1: `${
         require("../../images/macaron-tower-with-flowers_900x.webp").default
       }`,
+      id: 6,
     },
   ];
+
+  const handleAddToCart = (data: any) => {
+    dispatch(addItem(data));
+    setOpenSnack(true);
+    setMessage(t("added to cart"));
+    setType("success");
+  };
+
+  const handleCloseSnack = (event?: any, reason?: any) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenSnack(false);
+  };
 
   return (
     <>
@@ -118,7 +148,7 @@ export default function Home() {
               color: "#7d7979",
             }}
           >
-            {t('ourBestSellers')}
+            {t("ourBestSellers")}
           </Typography>
         </Box>
         <Grid container spacing={3}>
@@ -131,7 +161,10 @@ export default function Home() {
               key={row}
               className={classes.imgBox}
             >
-              <Box className={classes.projectThumbnail}>
+              <Box
+                className={classes.projectThumbnail}
+                onClick={() => handleAddToCart(data)}
+              >
                 <img
                   alt="best seller img"
                   src={data.path_1}
@@ -156,7 +189,10 @@ export default function Home() {
                 <Typography variant="caption" align="center">
                   {data.name}
                 </Typography>
-                <Typography variant="subtitle1" align="center">
+                <Typography
+                  variant="subtitle1"
+                  align="center"
+                >
                   {data.price}
                 </Typography>
               </Box>
@@ -174,6 +210,14 @@ export default function Home() {
           </Button>
         </Box>
       </Container>
+
+      {/* Snackbar Component */}
+      <SnackbarComponent
+        open={openSnack}
+        message={message}
+        type={type}
+        onClose={handleCloseSnack}
+      />
     </>
   );
 }

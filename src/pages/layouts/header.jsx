@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import { List, ListItem, ListItemText } from "@material-ui/core";
@@ -7,7 +8,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
-import LanguageIcon from "@mui/icons-material/Language";
 import { grey } from "@mui/material/colors";
 import Drawer from "@mui/material/Drawer";
 import Paper from "@mui/material/Paper";
@@ -18,6 +18,9 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import LanguageBtn from "./languageBtn";
 import { useTranslation } from "react-i18next";
+import ShoppingCartDialog from '../../components/homeComponents/cartDialog';
+import { Badge } from "@mui/material";
+import SnackbarComponent from "../../components/snackBarComponents";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -208,6 +211,33 @@ export default function Header() {
     setAnchorEl(null);
   };
 
+  const [openCartDialog, setCartOpen] = useState(false);
+  const cartItems = useSelector((state) => state.items.cartInfo);
+
+  const [openSnack, setOpenSnack] = useState(false);
+  const [message, setMessage] = useState("");
+  const [type, setType] = useState("info");
+
+  const handleOpen = () => {
+    if (cartItems.length === 0) {
+      setMessage("Empty Cart");
+      setType("error");
+      setOpenSnack(true);
+      return;
+    }
+    setCartOpen(true);
+  };
+
+  const handleCloseCart = () => setCartOpen(false);
+
+  const handleCloseSnack = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnack(false);
+  };
+
+
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
 
@@ -284,13 +314,15 @@ export default function Header() {
                 </ListItemIcon>
 
                 <ListItemIcon>
-                  <ShoppingCartIcon sx={{ color: grey[50] }} />
+                  <Badge badgeContent={cartItems.length} color="error">
+                    <ShoppingCartIcon sx={{ color: grey[50],cursor: "pointer" }} onClick={handleOpen} />
+                  </Badge>
                 </ListItemIcon>
 
                 <ListItemIcon>
                   <IconButton
                     type="button"
-                    sx={{ p: "10px" }}
+                    sx={{ p: "10px", cursor: "pointer", }}
                     aria-label="search"
                     onClick={toggleDrawer("top", true)}
                   >
@@ -312,6 +344,20 @@ export default function Header() {
           </div>
         </Container>
       </div>
+
+      <ShoppingCartDialog
+        open={openCartDialog}
+        handleClose={handleCloseCart}
+        cartItems={cartItems}
+      />
+
+      {/* Snackbar Component */}
+      <SnackbarComponent
+        open={openSnack}
+        message={message}
+        type={type}
+        onClose={handleCloseSnack}
+      />
     </>
   );
 }

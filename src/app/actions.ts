@@ -1,14 +1,19 @@
 // Define action types as string literals
-type IncrementAction = { type: 'INCREMENT' };
-type DecrementAction = { type: 'DECREMENT' };
+type AddToCart = { type: 'ADD_TO_CART', payload: any;};
+type RemoveItem = { type: 'REMOVE_ITEM', payload: any;};
 
 // Action creators
-export const increment = (): IncrementAction => ({
-  type: 'INCREMENT',
+export const addItem = (product: any): AddToCart => ({
+  type: 'ADD_TO_CART',
+  payload: product,
 });
 
-export const decrement = (): DecrementAction => ({
-  type: 'DECREMENT',
+export const removeItem = (product: any): RemoveItem => ({
+  type: 'REMOVE_ITEM',
+  payload: product,
 });
+
+
+
 
   
